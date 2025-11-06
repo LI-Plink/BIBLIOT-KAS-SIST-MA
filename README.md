@@ -20,11 +20,11 @@ class Biblioteka:
 
     def pievienot_gramatu(self, gramata):
         self.gramatas.append(gramata)
-        print(f"✅ Grāmata '{gramata.nosaukums}' pievienota bibliotēkai!")
+        print(f" Grāmata '{gramata.nosaukums}' pievienota bibliotēkai!")
 
     def paradit_gramatas(self):
         if not self.gramatas:
-            print("📭 Bibliotēkā vēl nav grāmatu.")
+            print("Bibliotēkā vēl nav grāmatu.")
         else:
             print("\n=== BIBLIOTĒKAS GRĀMATAS ===")
             for i, g in enumerate(self.gramatas, 1):
@@ -33,9 +33,9 @@ class Biblioteka:
     def meklēt_gramatu(self, nosaukums):
         atrastas = [g for g in self.gramatas if nosaukums.lower() in g.nosaukums.lower()]
         if not atrastas:
-            print("❌ Grāmata netika atrasta.")
+            print(" Grāmata netika atrasta.")
         else:
-            print("\n🔎 Atrastās grāmatas:")
+            print("\n Atrastās grāmatas:")
             for g in atrastas:
                 print(g)
 
@@ -45,7 +45,7 @@ class Biblioteka:
                 self.gramatas.remove(g)
                 print(f"🗑️ Grāmata '{nosaukums}' dzēsta.")
                 return
-        print("❌ Grāmata netika atrasta.")
+        print("Grāmata netika atrasta.")
 
     def statistika(self):
         if not self.gramatas:
@@ -55,26 +55,26 @@ class Biblioteka:
         jaunaka = max(self.gramatas, key=lambda g: g.gads)
         vecaka = min(self.gramatas, key=lambda g: g.gads)
         print("\n=== STATISTIKA ===")
-        print(f"📘 Kopā grāmatu: {len(self.gramatas)}")
-        print(f"📅 Vidējais izdošanas gads: {vid_gads:.1f}")
-        print(f"🆕 Jaunākā grāmata: {jaunaka.nosaukums} ({jaunaka.gads})")
-        print(f"📜 Vecākā grāmata: {vecaka.nosaukums} ({vecaka.gads})")
+        print(f" Kopā grāmatu: {len(self.gramatas)}")
+        print(f" Vidējais izdošanas gads: {vid_gads:.1f}")
+        print(f" Jaunākā grāmata: {jaunaka.nosaukums} ({jaunaka.gads})")
+        print(f" Vecākā grāmata: {vecaka.nosaukums} ({vecaka.gads})")
 
 
     def saglabat_faila(self, faila_nosaukums="biblioteka.json"):
         dati = [g.__dict__ for g in self.gramatas]
         with open(faila_nosaukums, "w", encoding="utf-8") as f:
             json.dump(dati, f, ensure_ascii=False, indent=4)
-        print("💾 Dati saglabāti failā!")
+        print("Dati saglabāti failā!")
 
     def nolasit_no_faila(self, faila_nosaukums="biblioteka.json"):
         try:
             with open(faila_nosaukums, "r", encoding="utf-8") as f:
                 dati = json.load(f)
                 self.gramatas = [Gramata(**g) for g in dati]
-            print("📂 Dati nolasīti no faila!")
+            print("Dati nolasīti no faila!")
         except FileNotFoundError:
-            print("❗ Failu neizdevās atrast – sākam ar tukšu bibliotēku.")
+            print("Failu neizdevās atrast – sākam ar tukšu bibliotēku.")
 
 
 
@@ -112,7 +112,7 @@ class Biblioteka:
                 biblioteka.saglabat_faila()
             elif izvēle == "0":
                 biblioteka.saglabat_faila()
-                print("👋 Programma beidza darbu.")
+                print("Programma beidza darbu.")
                 break
             else:
                 print("❌ Nepareiza izvēle. Mēģini vēlreiz.")
