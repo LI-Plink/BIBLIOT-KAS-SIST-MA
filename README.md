@@ -115,7 +115,7 @@ class Biblioteka:
                 print("Programma beidza darbu.")
                 break
             else:
-                print("❌ Nepareiza izvēle. Mēģini vēlreiz.")
+                print(" Nepareiza izvēle. Mēģini vēlreiz.")
 
         if __name__ == "__main__":
             galvena_izvelne()
