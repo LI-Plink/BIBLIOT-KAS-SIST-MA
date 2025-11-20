@@ -1,5 +1,5 @@
 # BIBLIOTeKAS SISTeMA
-mport json
+import json
 
 
 class Gramata:
